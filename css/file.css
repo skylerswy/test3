@@ -1,0 +1,135 @@
+/* -----------head------------- */
+.head {
+    width: 100%;
+    overflow: hidden;
+}
+
+.navi-bar {
+    list-style: none;
+    /* 去点 */
+    margin: 30px auto;
+    width: 800px;
+}
+
+.navi-bar a {
+	font: bolder 19px georgia;
+	color: #666;
+    text-decoration: none;
+    /* 去下划线 */
+    display: inline-block;
+    -webkit-transition: all 0.2s ease-in;
+       -moz-transition: all 0.2s ease-in;
+         -o-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+}
+
+.navi-bar a:hover {
+    -webkit-transform:rotate(10deg);/* Safari 和 Chrome */
+       -moz-transform:rotate(10deg);/* Firefox */
+         -o-transform:rotate(10deg);/* Opera */
+        -ms-transform:rotate(10deg);/* IE 9 */
+            transform:rotate(10deg);/* rotate旋转属性 */
+  }
+
+
+.navi-bar p {
+	color: #666;
+}
+
+.navi-bar li {
+	padding: 0px 30px;
+ 	float: left;
+ 	border-left: 2px #d6d6d6 dotted;
+ }
+
+ .navi-bar li:last-child {
+     border-right: 2px #d6d6d6 dotted;
+ }
+ /* -----------head------------- */
+
+ /* -----------left-nav-------------- */
+ .body-main {
+     margin: 20px auto;
+     width: 80%;
+     overflow: hidden;
+     background-color: rgb(247, 199, 199);
+     border-radius: 5px;
+ }
+
+.left-nav {
+    position: fixed;
+    background-color: #fff;
+    width: 17%; 
+    border-radius: 5px;
+    margin: 20px 5px;
+}
+
+.left-bar {
+    list-style: none;
+    /* 去点 */ 
+    width: 100px;
+}
+
+.left-bar a {
+    text-decoration: none;
+}
+
+.left-bar p {
+    text-align: center;
+    font-size: 25px;
+    font-style: initial;
+    color: #666;
+}
+
+.left-bar p:hover {
+    font-size: 30px;
+}
+
+/* -----------left-nav-------------- */
+
+/* -----------right main------------ */
+.right-main {
+    float: right;
+    width: 80%;
+    height: 1600px;
+    background-color: #fff;
+    margin: 20px 5px;
+    border-radius: 5px;
+}
+
+.input-bar {
+    margin: 20px auto;
+    width: 500px;
+}
+
+.search {
+    width: 300px;
+	height: 30px;
+	margin: 2px;
+    border-radius: 5px;
+    border: 0;
+    border: 2px solid #666;
+    padding: 1px;
+}
+
+.search:focus {
+    background-color: #BDECE6;
+}
+
+.search-button {
+    margin: 10px auto;
+    width: 100px;
+    height: 30px;
+	border: 2px solid #666;
+    background-color: #666;
+    font: bolder 15px georgia;
+}
+
+fieldset {
+    width: 850px;
+    height: 300px;
+    margin: 50px;
+    font: bolder 19px georgia;
+	color: #666;
+}
