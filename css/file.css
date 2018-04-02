@@ -1,57 +1,7 @@
-/* -----------head------------- */
-.head {
-    width: 100%;
-    overflow: hidden;
-}
-
-.navi-bar {
-    list-style: none;
-    /* 去点 */
-    margin: 30px auto;
-    width: 800px;
-}
-
-.navi-bar a {
-	font: bolder 19px georgia;
-	color: #666;
-    text-decoration: none;
-    /* 去下划线 */
-    display: inline-block;
-    -webkit-transition: all 0.2s ease-in;
-       -moz-transition: all 0.2s ease-in;
-         -o-transition: all 0.2s ease-in;
-        -ms-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-}
-
-.navi-bar a:hover {
-    -webkit-transform:rotate(10deg);/* Safari 和 Chrome */
-       -moz-transform:rotate(10deg);/* Firefox */
-         -o-transform:rotate(10deg);/* Opera */
-        -ms-transform:rotate(10deg);/* IE 9 */
-            transform:rotate(10deg);/* rotate旋转属性 */
-  }
-
-
-.navi-bar p {
-	color: #666;
-}
-
-.navi-bar li {
-	padding: 0px 30px;
- 	float: left;
- 	border-left: 2px #d6d6d6 dotted;
- }
-
- .navi-bar li:last-child {
-     border-right: 2px #d6d6d6 dotted;
- }
- /* -----------head------------- */
-
- /* -----------left-nav-------------- */
+/* -----------left-nav-------------- */
  .body-main {
      margin: 20px auto;
-     width: 80%;
+     width: 100%;
      overflow: hidden;
      background-color: rgb(247, 199, 199);
      border-radius: 5px;
@@ -75,7 +25,7 @@
     text-decoration: none;
 }
 
-.left-bar p {
+.left-bar li p {
     text-align: center;
     font-size: 25px;
     font-style: initial;
@@ -91,7 +41,7 @@
 /* -----------right main------------ */
 .right-main {
     float: right;
-    width: 80%;
+    width: 83%;
     height: 1600px;
     background-color: #fff;
     margin: 20px 5px;
@@ -99,6 +49,7 @@
 }
 
 .input-bar {
+    display: none;
     margin: 20px auto;
     width: 500px;
 }
@@ -125,11 +76,68 @@
     background-color: #666;
     font: bolder 15px georgia;
 }
-
-fieldset {
-    width: 850px;
-    height: 300px;
+/* -----------right main------------ */
+.nav-1 {
     margin: 50px;
-    font: bolder 19px georgia;
-	color: #666;
+    width: 1100px;
+    overflow: hidden;
+}
+
+.nav-1 img {
+    position: relative;
+    left: 10px;
+    top: 15px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.nav-1 p {
+    display: inline-block;
+    font-size: 25px;
+    font-style: initial;
+    color: #666;
+}
+
+.ic-out {
+    overflow: hidden;
+}
+
+.ic {
+    float: left;
+    margin: 30px;
+    width: 300px;
+    height: 150px;
+    border: #B5B5B5 2px solid;
+}
+
+.ic img {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+}
+
+.ic a {
+    position: relative;
+    left: 50px;
+    top: -15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-style: initial;
+    color: #666;
+}
+.ic a:hover {
+    color: #EE7621;
+}
+
+.ic p {
+    display: inline-block;
+    margin: 15px 10px;
+    font-size: 15px;
+    font-style: initial;
+    color: #666;
 }
