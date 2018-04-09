@@ -4,7 +4,7 @@ body {
     border: 0px
 }
 /* -----------left-nav-------------- */
- .body-main {
+.body-main {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -26,10 +26,7 @@ body {
 .left-nav {
     position: relative;
     background-color: #30333c;
-    
     height: 100%;
-   
-    /* border-radius: 5px; */
 }
 
 .title p {
@@ -43,14 +40,7 @@ body {
     list-style: none;
     /* 去点 */ 
     width: 100px;
-    overflow-x: hidden;
-	overflow-y: scroll;
 }
-
-.left-bar::-webkit-scrollbar {
-	display: none;
-}
-
 
 .left-bar a {
     text-decoration: none;
