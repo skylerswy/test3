@@ -54,6 +54,7 @@ body {
 
 .left-bar p:hover {
     font-size: 30px;
+    color: #FFFFFF;
 }
 
 .left-bar li:last-child {
