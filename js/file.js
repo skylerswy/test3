@@ -66,22 +66,68 @@ function sear_for() {
 
 var change = document.getElementsByClassName("light");
 
-window.onscroll = function(){ 
-    var t =document.documentElement.scrollTop||document.body.scrollTop;
-    for (i=0;i<8;i++){
-        var num = document.getElementsByClassName("nav-1")[i].offsetTop;
-        var distance = num - t;
-        if (distance<20){
-            change[i].style.color='#FFFFFF';
-            change[i].not(this).style.color='#6b7386';
-        }
-        //var num = div[i].offsetTop;
-        // 
-        //var distance = num - t;
-        //if (distance < 20){
-        //    div[i].style.color = '#FFFFFF';
-        //}
+
+// 文档加载渲染完毕后 scrollTop 就确定不变了
+var navs = document.querySelectorAll('.nav-1');
+// 保存起来，这样只用计算一遍，从小到大排序好的
+var navScrollTops = [];
+for(var i = 0; i < navs.length; i++) {
+    navScrollTops.push(navs[i].offsetTop);
+}
+
+window.onscroll = function(){
+    // 不断变化的 scrollTop
+    var currentScrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+    // 在 navScrollTops 查找比 currentScrollTop 大的第一个数
+
+    // 比第一个小说明在最上面，还没有到第一个，更改第一个即可
+    if (currentScrollTop < navScrollTops[0]) {
+        change[0].style.color = '#6b7386';
+        // 直接返回
+        return;
     }
+
+    // 比最后一个大说明是最下面的
+    if (currentScrollTop > navScrollTops[navScrollTops.length - 1]) {
+        change[change.length - 2].style.color = '#6b7386';
+        change[change.length - 1].style.color = '#FFFFFF';
+        // 直接返回
+        return;
+    }
+
+    var index = 0;
+    for(var i = 0; i < navScrollTops.length; i++) {
+        if(navScrollTops[i] > currentScrollTop) {
+            // 当前要滚动到分类就是 i - 1
+            index = i - 1;
+            // 找到后立即跳出 for 循环
+            break;
+        }
+    }
+    
+    // 改变第 index 个分类 change
+    for(var i = 0; i < change.length; i++) {
+        if(i == index) {
+            change[i].style.color = '#FFFFFF';
+        } else {
+            change[i].style.color = '#6b7386';
+        }
+    }
+
+    // for (i=0;i<8;i++){
+    //     var num = navs[i].offsetTop;
+    //     var distance = num - t;
+    //     if (distance<20){
+    //         change[i].style.color='#FFFFFF';
+    //         change[i].not(this).style.color='#6b7386';
+    //     }
+    //     //var num = div[i].offsetTop;
+    //     // 
+    //     //var distance = num - t;
+    //     //if (distance < 20){
+    //     //    div[i].style.color = '#FFFFFF';
+    //     //}
+    // }
     
 
 }
