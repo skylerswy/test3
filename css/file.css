@@ -16,10 +16,10 @@ body {
     position: fixed;
     overflow: hidden;
     background: #000;
-    width: 180px; 
+    width: 200px; 
     height: 100%;
     /* border-radius: 5px; */
-    padding: 0 60px;
+    padding: 0 20px;
     background-color: #30333c;
 }
 
@@ -31,9 +31,22 @@ body {
 
 .title p {
     text-align: center;
-    font-size: 30px;
+    font-size: 18px;
     font-style: initial;
-    color: #6b7386;
+    color: #FFFFFF;
+}
+
+.item p {
+    text-indent:2em;
+    font-style: initial;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.item {
+    height: 48px;
+    border-top: 2px solid hsla(0,0%,100%,.04);
+    border-bottom: 2px solid hsla(0,0%,100%,.04);
 }
 
 .left-bar {
@@ -47,19 +60,21 @@ body {
 }
 
 .left-bar li p {
-    font-size: 25px;
+    font-size: 14px;
     font-style: initial;
     color: #6b7386;
 }
 
 .left-bar p:hover {
-    font-size: 30px;
     color: #FFFFFF;
 }
 
 .left-bar li:last-child {
     position: fixed;
     bottom: 0;
+    width: 150px;
+    border-top: 2px solid hsla(0,0%,100%,.04);
+    color: #FFFFFF;
 }
 
 /* -----------left-nav-------------- */
@@ -68,7 +83,7 @@ body {
 .right-main {
     position: relative;
     /* display: flex; */
-    left: 300px;
+    left: 250px;
     float: left;
     overflow: hidden;
     background-color: #F0F0F0;
@@ -104,7 +119,7 @@ body {
 }
 /* -----------right main------------ */
 .nav-1 {
-    margin: 50px;
+    margin: 30px;
     overflow: hidden;
     background: #FFFFFF;
 }
@@ -112,15 +127,15 @@ body {
 .nav-1 img {
     position: relative;
     left: 10px;
-    top: 15px;
+    top: 8px;
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .nav-1 p {
     display: inline-block;
-    font-size: 25px;
+    font-size: 20px;
     font-style: initial;
     color: #666;
 }
@@ -131,9 +146,9 @@ body {
 
 .ic {
     float: left;
-    margin: 30px;
-    width: 300px;
-    height: 150px;
+    margin: 15px;
+    width: 250px;
+    height: 120px;
     border: #B5B5B5 2px solid;
     box-shadow: 5px 5px 3px #F0F0F0;
 }
@@ -143,19 +158,20 @@ body {
     left: 10px;
     top: 10px;
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
 }
 
 .ic a {
+    font-weight: 700;
     position: relative;
-    left: 50px;
-    top: -15px;
+    left: 20px;
+    top: -5px;
     text-decoration: none;
     display: inline-block;
-    font-size: 25px;
+    font-size: 15px;
     font-style: initial;
-    color: #666;
+    color: #3273dc;;
 }
 .ic a:hover {
     color: #EE7621;
@@ -164,7 +180,7 @@ body {
 .ic p {
     display: inline-block;
     margin: 15px 10px;
-    font-size: 15px;
+    font-size: 12px;
     font-style: initial;
     color: #666;
 }
