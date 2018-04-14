@@ -189,37 +189,55 @@ body {
 @media screen and (max-width:700px)
 {
 .title p {
-    text-align: center;
-    font-size: 28px;
+    text-align: left;
+    font-size: 14px;
     font-style: initial;
     color: #FFFFFF;
 }
 
 .item p {
-    text-indent:2em;
-    font-style: initial;
-    color: #FFFFFF;
-    font-size: 24px;
+    font-size: 12px;
 }
 
 .left-bar li p {
-    font-size: 24px;
+    font-size: 14px;
     font-style: initial;
     color: #6b7386;
 }
 
 .item {
-    height: 78px;
+    height: 35px;
     border-top: 2px solid hsla(0,0%,100%,.04);
     border-bottom: 2px solid hsla(0,0%,100%,.04);
 }
+
+.posi {
+    width: 90px; 
+    padding: 0 1px;
+}
+
+.right-main {
+    left: 90px;
+}
+
+.nav-1 {
+    margin: 10px;
+}
+
+.ic {
+    margin: 15px;
+    width: 230px;
+    height: 120px;
+}
+
+
 
 }
 /* ipad端 */
 @media screen and (min-width:700px) and (max-width:1100px){
     .title p {
         text-align: center;
-        font-size: 30px;
+        font-size: 22px;
         font-style: initial;
         color: #FFFFFF;
     }
@@ -228,19 +246,34 @@ body {
         text-indent:2em;
         font-style: initial;
         color: #FFFFFF;
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .left-bar li p {
-        font-size: 24px;
+        font-size: 20px;
         font-style: initial;
         color: #6b7386;
     }
     
     .item {
-        height: 78px;
+        height: 68px;
         border-top: 2px solid hsla(0,0%,100%,.04);
         border-bottom: 2px solid hsla(0,0%,100%,.04);
+    }
+
+    .posi {
+        width: 170px; 
+        padding: 0 1px;
+    }
+
+    .right-main {
+        left: 170px;
+    }
+
+    .ic {
+        margin: 15px;
+        width: 230px;
+        height: 120px;
     }
 
 }
