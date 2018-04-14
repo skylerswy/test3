@@ -291,7 +291,7 @@ body {
     }
 } */
 
-@media screen and (min-width:360px) and (max-width:480px) {
+@media screen  and (max-width:480px) {
     .title {
         display: none;
     }
