@@ -72,7 +72,7 @@ body {
 .foot {
     border-top: 2px solid hsla(0,0%,100%,.04);
     position: relative;
-    top: -17px;
+    top: -42px;
 }
 
 .item p {
@@ -96,6 +96,12 @@ body {
     list-style: none;
     /* 去点 */ 
     width: 100px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.left-bar::-webkit-scrollbar {
+    display:none;
 }
 
 .left-imgs {
@@ -103,7 +109,7 @@ body {
     width: 18px;
     height: 18px;
     position: relative;
-    top: -9px;
+    top: -15px;
     left: -20px;
 }
 
@@ -113,7 +119,7 @@ body {
 
 .left-bar li p {
     position: relative;
-    top: -8px;
+    top: -15px;
     left: -8px;
     font-size: 12px;
     display: block;
@@ -185,17 +191,18 @@ body {
 
 .nav-1 img {
     position: relative;
-    left: 10px;
+    left: 18px;
+    top: -1px;
     display: inline-block;
     width: 27px;
-    height: 27px;
+    height: 24px;
 }
 
 .nav-1 p {
     display: inline-block;
     position: relative;
-    left: 5px;
-    top: -7px;
+    left: 14px;
+    top: -6px;
     font-size: 18px;
     font-style: initial;
     color: #666;
@@ -207,7 +214,8 @@ body {
 
 .ic {
     float: left;
-    margin: 12px 17px;
+    margin: 0px 14px 21px;
+    padding-right: 10px;
     width: 240px;
     height: 105px;
     border: 1px solid #e4ecf3;
@@ -216,21 +224,21 @@ body {
 
 .ic img {
     position: relative;
-    left: 10px;
-    top: 10px;
+    left: 13px;
+    top: 4px;
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 .ic a {
     font-weight: 700;
     position: relative;
-    left: 20px;
-    top: -5px;
+    left: 12px;
+    top: -13px;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 14px;
     font-style: initial;
     color: #3273dc;;
 }
@@ -240,9 +248,8 @@ body {
 
 .ic p {
    
-    margin: 15px 10px;
+    margin: 15px 5px;
     font-size: 12px;
-    font-style: initial;
     color: #666;
     overflow:hidden; 
     /* 超出的文本隐藏 */
@@ -294,6 +301,12 @@ body {
     .left-bar li {
         float: left;
         padding: 0 20px;
+    }
+
+    .light {
+        font-size: 18px;
+        display: block;
+        padding: 12px 0;
     }
 
     .left-bar li:last-child {

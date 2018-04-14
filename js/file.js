@@ -75,10 +75,6 @@ for(var i = 0; i < navs.length; i++) {
     navScrollTops.push(navs[i].offsetTop);
 }
 
-if(windowWidth <= 480){
-
-}else{
-
 window.onscroll = function(){
     // 不断变化的 scrollTop
     var currentScrollTop = document.documentElement.scrollTop||document.body.scrollTop;
@@ -144,6 +140,6 @@ window.onscroll = function(){
     // }
 }
 
-}
+
 
 
