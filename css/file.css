@@ -3,6 +3,7 @@ body {
     padding: 0px;
     border: 0px;
     min-height:100vh;
+    font-family:PingFangSC-Regular,Helvetica Neue,Microsoft Yahei,微软雅黑；
 }
 /* -----------left-nav-------------- */
 .body-main {
@@ -16,7 +17,7 @@ body {
 .posi {
     position: fixed;
     background: #000;
-    width: 200px; 
+    width: 208px; 
     height: 100%;
     /* border-radius: 5px; */
     padding: 0 20px;
@@ -30,17 +31,59 @@ body {
 }
 
 .title p {
+    margin: 13px;
     text-align: center;
     font-size: 18px;
     font-style: initial;
     color: #FFFFFF;
 }
 
+.left-img {
+    width: 25px;
+    height: 27px;
+    position: relative;
+    top: 8px;
+} 
+
+.left-foot {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 7px;
+    left: -2px;
+    float: left;
+}
+
+.left-2 {
+    width: 18px;
+    height: 25px;
+    position: relative;
+    top: -32px;
+    left: 183px;;
+}
+
+.foot p {
+    color: #FFFFFF;
+    font-size: 12px;
+    position: relative;
+    top: 3px;
+}
+
+.foot {
+    border-top: 2px solid hsla(0,0%,100%,.04);
+    position: relative;
+    top: -17px;
+}
+
 .item p {
-    text-indent:2em;
+    display: block;
+    position: relative;
+    left: 15px;
+    top: -28px;
+    text-indent:1em;
     font-style: initial;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .item {
@@ -55,12 +98,26 @@ body {
     width: 100px;
 }
 
+.left-imgs {
+    float: left;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: -9px;
+    left: -20px;
+}
+
 .left-bar a {
     text-decoration: none;
 }
 
 .left-bar li p {
-    font-size: 14px;
+    position: relative;
+    top: -8px;
+    left: -8px;
+    font-size: 12px;
+    display: block;
+    padding-bottom: 4px;
     font-style: initial;
     color: #6b7386;
 }
@@ -70,6 +127,7 @@ body {
 }
 
 .left-bar li:last-child {
+    display: none;
     position: fixed;
     bottom: 0;
     width: 150px;
@@ -84,7 +142,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    left: 90px;
+    left: 135px;
     /* display: flex; */
     overflow: hidden;
     background-color: #F0F0F0;
@@ -120,7 +178,7 @@ body {
 }
 /* -----------right main------------ */
 .nav-1 {
-    margin: 30px;
+    margin: 20px;
     overflow: hidden;
     background: #FFFFFF;
 }
@@ -200,102 +258,15 @@ body {
 
 
 /* --------------响应式-------------- */
-/* 手机端 */
-/* @media screen and (max-width:700px)
-{
-.title p {
-    text-align: left;
-    font-size: 14px;
-    font-style: initial;
-    color: #FFFFFF;
-}
-
-.item p {
-    font-size: 12px;
-}
-
-.left-bar li p {
-    font-size: 14px;
-    font-style: initial;
-    color: #6b7386;
-}
-
-.item {
-    height: 35px;
-    border-top: 2px solid hsla(0,0%,100%,.04);
-    border-bottom: 2px solid hsla(0,0%,100%,.04);
-}
-
-.posi {
-    width: 90px; 
-    padding: 0 1px;
-}
-
-.right-main {
-    left: 90px;
-}
-
-.nav-1 {
-    margin: 10px;
-}
-
-.ic {
-    margin: 15px;
-    width: 230px;
-    height: 120px;
-}
-} */
-
-
-/* ipad端 */
-/* @media screen and (min-width:700px) and (max-width:1100px){
-    .title p {
-        text-align: center;
-        font-size: 22px;
-        font-style: initial;
-        color: #FFFFFF;
-    }
-    
-    .item p {
-        text-indent:2em;
-        font-style: initial;
-        color: #FFFFFF;
-        font-size: 20px;
-    }
-    
-    .left-bar li p {
-        font-size: 20px;
-        font-style: initial;
-        color: #6b7386;
-    }
-    
-    .item {
-        height: 68px;
-        border-top: 2px solid hsla(0,0%,100%,.04);
-        border-bottom: 2px solid hsla(0,0%,100%,.04);
-    }
-
-    .posi {
-        width: 170px; 
-        padding: 0 1px;
-    }
-
-    .right-main {
-        left: 170px;
-    }
-
-    .ic {
-        margin: 15px;
-        width: 230px;
-        height: 120px;
-    }
-} */
-
 @media screen  and (max-width:480px) {
     .title {
         display: none;
     }
     .item {
+        display: none;
+    }
+
+    .left-imgs {
         display: none;
     }
 
