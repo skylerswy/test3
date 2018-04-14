@@ -1,7 +1,8 @@
 body {
     margin: 0px;
     padding: 0px;
-    border: 0px
+    border: 0px;
+    min-height:100vh;
 }
 /* -----------left-nav-------------- */
 .body-main {
@@ -14,7 +15,6 @@ body {
 
 .posi {
     position: fixed;
-    overflow: hidden;
     background: #000;
     width: 200px; 
     height: 100%;
@@ -81,10 +81,11 @@ body {
 
 /* -----------right main------------ */
 .right-main {
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
+    left: 90px;
     /* display: flex; */
-    left: 250px;
-    float: left;
     overflow: hidden;
     background-color: #F0F0F0;
 }
@@ -127,15 +128,17 @@ body {
 .nav-1 img {
     position: relative;
     left: 10px;
-    top: 8px;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
 }
 
 .nav-1 p {
     display: inline-block;
-    font-size: 20px;
+    position: relative;
+    left: 5px;
+    top: -7px;
+    font-size: 18px;
     font-style: initial;
     color: #666;
 }
@@ -146,11 +149,11 @@ body {
 
 .ic {
     float: left;
-    margin: 15px;
-    width: 250px;
-    height: 120px;
-    border: #B5B5B5 2px solid;
-    box-shadow: 5px 5px 3px #F0F0F0;
+    margin: 12px 17px;
+    width: 240px;
+    height: 105px;
+    border: 1px solid #e4ecf3;
+    box-shadow: 1px 2px 3px #f2f6f8;
 }
 
 .ic img {
@@ -178,15 +181,27 @@ body {
 }
 
 .ic p {
-    display: inline-block;
+   
     margin: 15px 10px;
     font-size: 12px;
     font-style: initial;
     color: #666;
-}
+    overflow:hidden; 
+    /* 超出的文本隐藏 */
+    text-overflow:ellipsis;
+    /* 溢出用省略号显示 */
+    display:-webkit-box; 
+    /* 将对象作为弹性伸缩盒子模型显示。 */
+    -webkit-box-orient:vertical;
+    /* 从上到下垂直排列子元素 */
+    -webkit-line-clamp:2;
+    /* 表示显示的行数。 */
+} 
 
+
+/* --------------响应式-------------- */
 /* 手机端 */
-@media screen and (max-width:700px)
+/* @media screen and (max-width:700px)
 {
 .title p {
     text-align: left;
@@ -229,12 +244,11 @@ body {
     width: 230px;
     height: 120px;
 }
+} */
 
 
-
-}
 /* ipad端 */
-@media screen and (min-width:700px) and (max-width:1100px){
+/* @media screen and (min-width:700px) and (max-width:1100px){
     .title p {
         text-align: center;
         font-size: 22px;
@@ -275,5 +289,85 @@ body {
         width: 230px;
         height: 120px;
     }
+} */
 
+@media screen and (min-width:360px) and (max-width:480px) {
+    .title {
+        display: none;
+    }
+    .item {
+        display: none;
+    }
+
+    .left-nav {
+        position: fixed;
+        z-index: 2;
+    }
+
+    .posi {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        z-index: 3;
+        background-color: #fff;
+        overflow-x:scroll;
+        overflow-y:hidden;
+    }
+    
+    .left-bar {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .left-bar li {
+        float: left;
+        padding: 0 20px;
+    }
+
+    .left-bar li:last-child {
+        display: none;
+    
+    }
+
+    .left-bar li:hover {
+        background-color: #3273dc;
+    }
+
+    .right-main { 
+        float: none;
+        position: relative;
+        top: 55px;
+        left: 0px;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    .nav-1 {
+        margin: 10px;
+    }
+
+    .nav-1:last-child {
+        margin-bottom: 80px;
+    }
+
+    .ic {
+        width: 150px;
+    }
+}
+
+
+
+@media screen and (min-width:481px) and (max-width:1490px) {
+    .left-nav {
+        width:200px;
+        z-index: 3;
+    }
+
+    .right-main {
+        float: left;
+        z-index: 1;
+        position: relative;
+        left: 230px;
+    }
 }

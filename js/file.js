@@ -75,6 +75,10 @@ for(var i = 0; i < navs.length; i++) {
     navScrollTops.push(navs[i].offsetTop);
 }
 
+if(windowWidth <= 480){
+
+}else{
+
 window.onscroll = function(){
     // 不断变化的 scrollTop
     var currentScrollTop = document.documentElement.scrollTop||document.body.scrollTop;
@@ -104,8 +108,16 @@ window.onscroll = function(){
             break;
         }
     }
-    
-    // 改变第 index 个分类 change
+    // if(windowWidth <= 480){
+    //     for(var i = 0; i < change.length; i++) {
+    //         if(i == index) {
+    //             change[i].style.background = '#FFFFFF';
+    //         } else {
+    //             change[i].style.background = '#3273dc';
+    //         }
+    //     }
+    // }else{
+        // 改变第 index 个分类 change
     for(var i = 0; i < change.length; i++) {
         if(i == index) {
             change[i].style.color = '#FFFFFF';
@@ -113,6 +125,8 @@ window.onscroll = function(){
             change[i].style.color = '#6b7386';
         }
     }
+    
+    
 
     // for (i=0;i<8;i++){
     //     var num = navs[i].offsetTop;
@@ -128,6 +142,8 @@ window.onscroll = function(){
     //     //    div[i].style.color = '#FFFFFF';
     //     //}
     // }
-    
+}
 
 }
+
+
