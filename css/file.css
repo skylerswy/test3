@@ -222,6 +222,46 @@ body {
     box-shadow: 1px 2px 3px #f2f6f8;
 }
 
+.ic-foot {
+    
+    float: left;
+    margin: 0px 14px 21px;
+    padding-right: 10px;
+    width: 240px;
+    height: 205px;
+    border: 1px solid #e4ecf3;
+    box-shadow: 1px 2px 3px #f2f6f8;
+}
+
+.ic-foot a{
+    font-weight: 700;
+    position: relative;
+    left: 10px;
+    top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-style: initial;
+    color: #3273dc;;
+}
+
+.ic-foot img {
+    margin-top: 30px;
+    display: block;
+    width: 110px;
+    height: 110px;
+}
+
+.ic-foot p {
+    font-size: 13px;
+    display: block;
+    margin: 20px auto;
+}
+
+.nav-1:last-child {
+    margin-bottom: 150px;
+}
+
 .ic img {
     position: relative;
     left: 13px;
