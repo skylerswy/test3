@@ -1,3 +1,5 @@
+$('body').scrollspy({ target: '.navbar-example' })
+
 var sear = document.getElementById("sear");
 var find = document.getElementById("sousuo");
 //console.log(find);

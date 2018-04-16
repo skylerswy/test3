@@ -280,7 +280,8 @@ body {
     display: inline-block;
     font-size: 14px;
     font-style: initial;
-    color: #3273dc;;
+    color: #3273dc;
+   
 }
 .ic a:hover {
     color: #EE7621;
