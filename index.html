@@ -9,7 +9,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".navbar-example">
+<body>
     <div class="body-main">
         <div class="left-nav">
             <div class="posi">
@@ -20,6 +20,10 @@
                     <img src="img/left1.png" class="left-img">
                     <p>前端导航</p>
                 </div>  
+                
+                <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+                <div class="container-fluid">
+                <div class="collapse navbar-collapse bs-js-navbar-scrollspy"> 
                 <ul class="left-bar">
                     <li>
                         <img src="img/left01.png" class="left-imgs">
@@ -97,6 +101,9 @@
                         <a href="#sousuo"><p id="sear">搜索</p></a>
                     </li>
                 </ul>
+                </div>
+                </div>
+                </nav>
                 <div class="foot">
                     <img src="img/left-foot.png" class="left-foot">
                     <p>留言</p>
@@ -104,7 +111,7 @@
                 </div>  
             </div>
         </div>
-        <div class="right-main" id="roll">
+        <div class="right-main" id="roll" data-spy="scroll" data-target="#navbar-example" data-offset="0">
             <div class="input-bar" id="sousuo">
                 <input type="text" class="search" >
                 <input type="button" class="search-button" value="search">
