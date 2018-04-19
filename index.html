@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" > -->
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <div class="body-main">
         <div class="left-nav">
             <div class="posi">
@@ -19,7 +19,14 @@
                     <img src="img/left1.png" class="left-img">
                     <p>前端导航</p>
                 </div>  
-                <ul class="left-bar">
+                <nav id="myScrollspy" class="navbar" role="navigation">
+                        <!-- 添加 role="navigation"，有助于增加可访问性。 -->    
+                <ul class="nav navbar-nav nav-pills nav-stacked left-bar">
+                    <!-- 为了向导航栏添加链接，
+                        只需要简单地添加带有 class .nav、.navbar-nav 的无序列表即可。 -->
+                    <!-- nav-tabs 横着排列,表格导航
+                         nav-pills胶囊式导航菜单
+                         nav-pills nav-stacked垂直的胶囊式导航菜单-->
                     <li>
                         <img src="img/left01.png" class="left-imgs">
                         <a href="#f1"><p class="light">团队组织</p></a>
@@ -96,7 +103,8 @@
                         <a href="#sousuo"><p id="sear">搜索</p></a>
                     </li>
                 </ul>
-    
+                 
+                </nav>
                 <div class="foot">
                     <img src="img/left-foot.png" class="left-foot">
                     <p>留言</p>
@@ -104,7 +112,10 @@
                 </div>  
             </div>
         </div>
-        <div class="right-main" id="roll">
+        <div class="right-main">
+        <!-- <div class="right-main" id="roll" data-spy="scroll" data-target="#navbar-example"> -->
+                <!-- 向您想要监听的元素（通常是 body）添加 data-spy="scroll"。
+                然后添加带有 Bootstrap .nav 组件的父元素的 ID 或 class 的属性 data-target。 -->
             <div class="input-bar" id="sousuo">
                 <input type="text" class="search" >
                 <input type="button" class="search-button" value="search">
