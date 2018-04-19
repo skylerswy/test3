@@ -1,4 +1,3 @@
-$('body').scrollspy({ target: '.navbar-example' })
 
 var sear = document.getElementById("sear");
 var find = document.getElementById("sousuo");
@@ -106,15 +105,6 @@ window.onscroll = function(){
             break;
         }
     }
-    // if(windowWidth <= 480){
-    //     for(var i = 0; i < change.length; i++) {
-    //         if(i == index) {
-    //             change[i].style.background = '#FFFFFF';
-    //         } else {
-    //             change[i].style.background = '#3273dc';
-    //         }
-    //     }
-    // }else{
         // 改变第 index 个分类 change
     for(var i = 0; i < change.length; i++) {
         if(i == index) {
@@ -123,23 +113,6 @@ window.onscroll = function(){
             change[i].style.color = '#6b7386';
         }
     }
-    
-    
-
-    // for (i=0;i<8;i++){
-    //     var num = navs[i].offsetTop;
-    //     var distance = num - t;
-    //     if (distance<20){
-    //         change[i].style.color='#FFFFFF';
-    //         change[i].not(this).style.color='#6b7386';
-    //     }
-    //     //var num = div[i].offsetTop;
-    //     // 
-    //     //var distance = num - t;
-    //     //if (distance < 20){
-    //     //    div[i].style.color = '#FFFFFF';
-    //     //}
-    // }
 }
 
 
