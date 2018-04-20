@@ -155,8 +155,28 @@ body {
     background-color: #F0F0F0;
 }
 
+.sign-in {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sign-in input{
+    float: right;
+}
+
+.user {
+   display: block;
+   margin: 15px auto;
+}
+
+.password {
+    display: block;
+    margin: 15px auto;
+    
+}
+
 .input-bar {
-    display: none;
+    /* display: none; */
     margin: 20px auto;
     width: 500px;
 }

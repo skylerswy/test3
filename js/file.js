@@ -121,4 +121,45 @@ function sear_for() {
 //---------------混动js方法---------------------------
 
 
+function register() {
+    var oUname = document.getElementById("user1").value;
+    var oUpass = document.getElementById("password1");
+    var oUpassagain = document.getElementById("password2");
+    var oError = document.getElementById("error_box");
 
+    if (oUname.length == 0) {
+        oError.innerHTML = "账号不能为空"
+        return false;
+    }
+
+    if (oUname.length != 0) {
+        var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+        isok= reg.test(oUname );
+        if (!isok) {
+            oError.innerHTML = "邮箱格式不正确，请重新输入！"
+            document.getElementById("user1").focus();
+            // 该方法表示将输入焦点移至对象上
+            return false;
+        }
+    }
+
+    if (oUpass.value.length > 20 || oUpass.value.length < 6) {
+        oError.innerHTML = "密码请输入6-20位字符"
+        return false;
+    }
+
+    if (oUpassagain.value.length == 0) {
+        oError.innerHTML = "请输入第二次密码"
+        return false;
+    }
+
+    if (oUpassagain.value != oUpass.value) {
+        oError.innerHTML = "两次密码不一致，请重新输入"
+        oUpass.value = "";
+        oUpassagain.value = "";
+        return false;
+    }
+
+    window.alert("注册成功")
+   }
+   
