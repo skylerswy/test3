@@ -159,7 +159,18 @@ function register() {
         oUpassagain.value = "";
         return false;
     }
-
     window.alert("注册成功")
-   }
+    $("#myModal-register").modal('hide');
+}
+
+$(".search-button").click(function() {
+    var val = $(".search").val(); // 获取搜索词
+    if (val.length > 0) {
+        console.log(val);
+        $(".nav-1").hide(); 
+        $(".nav-1:contains(" + val + ")").show(); 
+    } else {
+        alert("输入为空");
+    }
+});
    

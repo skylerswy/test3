@@ -120,58 +120,9 @@
                     <input type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal-logoin" name="logoin" value="登陆">
                     <input type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal-register" name="register" value="注册" >
             </div>
-            <div class="modal fade" id="myModal-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <!-- tabIndex属性可以设置键盘中的TAB键在控件中的移动顺序，
-                        即焦点的顺序，若把tabIndex属性设为一个负值（如tabIndex="-1"），
-                        那么这个链接将被排除在TAB键的序列之外。 -->
-                    <!-- 为 .modal 添加 role="dialog"，用于指定模态框为对话框。
-                         通过 aria-describedby 属性为模态框 .modal 添加描述性信息。
-                         为 .modal-dialog 添加 aria-hidden="true" 属性。隐藏要弹出的内容 -->
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">注册</h4>
-                    </div>
-                    <div class="modal-body text-center">
-                        <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1"/>         
-                        <input type="password" required="required" placeholder="密码" name="password1"  class="password" id="password1"/>
-                        <input type="password" required="required" placeholder="确认密码" name="password2"  class="password" id="password2"/>
-                    </div>
-                    <div id="error_box" style="text-align: center;"><br></div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" data-dismiss="modal" onClick="register()">注册</button>   
-                    </div>
-                </div><!-- /.modal-content设置样式 -->
-                </div><!-- /.modal 设置宽度大小-->
-            </div>    
-            <div class="modal fade" id="myModal-logoin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <!-- tabIndex属性可以设置键盘中的TAB键在控件中的移动顺序，
-                        即焦点的顺序，若把tabIndex属性设为一个负值（如tabIndex="-1"），
-                        那么这个链接将被排除在TAB键的序列之外。 -->
-                    <!-- 为 .modal 添加 role="dialog"，用于指定模态框为对话框。
-                         通过 aria-describedby 属性为模态框 .modal 添加描述性信息。
-                         为 .modal-dialog 添加 aria-hidden="true" 属性。隐藏要弹出的内容 -->
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">登录</h4>
-                    </div>
-                    <div class="modal-body text-center">
-                        <input type="text" required="required" placeholder="账号" name="user" id="user" class="user"/>         
-                        <input type="password" required="required" placeholder="密码" name="password" id="password" class="password"/>
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" data-dismiss="modal"  onClick="logoin()">登录</button>   
-                    </div>
-                </div><!-- /.modal-content设置样式 -->
-                </div><!-- /.modal 设置宽度大小-->
-            </div>
             <div class="input-bar" id="sousuo">
                 <input type="text" class="search" >
-                <input type="button" class="search-button" value="search">
+                <input type="button" class="search-button" value="search" > 
             </div>
            <div id="f1" class="nav-1">
                 <img src="img/team1.png">
@@ -688,9 +639,59 @@
                     </div></center>
         </div>
     </div>
-    <script src="js/file.js"></script>
+    <div class="modal fade" id="myModal-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- tabIndex属性可以设置键盘中的TAB键在控件中的移动顺序，
+            即焦点的顺序，若把tabIndex属性设为一个负值（如tabIndex="-1"），
+            那么这个链接将被排除在TAB键的序列之外。 -->
+        <!-- 为 .modal 添加 role="dialog"，用于指定模态框为对话框。
+             通过 aria-describedby 属性为模态框 .modal 添加描述性信息。
+             为 .modal-dialog 添加 aria-hidden="true" 属性。隐藏要弹出的内容 -->
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">注册</h4>
+        </div>
+        <div class="modal-body text-center">
+            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1"/>         
+            <input type="password" required="required" placeholder="密码" name="password1"  class="password" id="password1"/>
+            <input type="password" required="required" placeholder="确认密码" name="password2"  class="password" id="password2"/>
+        </div>
+        <div id="error_box" style="text-align: center;"><br></div>
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default"  onClick="register()" value="注册 "/>
+            <!-- data-dismiss="modal" 点击会关闭-->
+        </div>
+    </div><!-- /.modal-content设置样式 -->
+    </div><!-- /.modal 设置宽度大小-->
+</div>    
+<div class="modal fade" id="myModal-logoin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- tabIndex属性可以设置键盘中的TAB键在控件中的移动顺序，
+            即焦点的顺序，若把tabIndex属性设为一个负值（如tabIndex="-1"），
+            那么这个链接将被排除在TAB键的序列之外。 -->
+        <!-- 为 .modal 添加 role="dialog"，用于指定模态框为对话框。
+             通过 aria-describedby 属性为模态框 .modal 添加描述性信息。
+             为 .modal-dialog 添加 aria-hidden="true" 属性。隐藏要弹出的内容 -->
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">登录</h4>
+        </div>
+        <div class="modal-body text-center">
+            <input type="text" required="required" placeholder="账号" name="user" id="user" class="user"/>         
+            <input type="password" required="required" placeholder="密码" name="password" id="password" class="password"/>
+        </div>
+        
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default"  onClick="logoin()" value="登录 "/>  
+        </div>
+    </div><!-- /.modal-content设置样式 -->
+    </div><!-- /.modal 设置宽度大小-->
+</div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/file.js"></script>
     </div>
 </body>
 </html>
