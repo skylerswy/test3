@@ -18,7 +18,8 @@ body {
 .posi {
     position: fixed;
     background: #000;
-    width: 208px; 
+    top:0px;
+    width: 248px; 
     height: 100%;
     /* border-radius: 5px; */
     padding: 0 20px;
@@ -50,7 +51,7 @@ body {
     width: 25px;
     height: 25px;
     position: relative;
-    top: 7px;
+    top: 9px;
     left: -2px;
     float: left;
 }
@@ -59,7 +60,7 @@ body {
     width: 18px;
     height: 25px;
     position: relative;
-    top: -32px;
+    top: -16px;
     left: 183px;;
 }
 
@@ -67,20 +68,20 @@ body {
     color: #FFFFFF;
     font-size: 12px;
     position: relative;
-    top: 3px;
+    top: 15px;
 }
 
 .foot {
     border-top: 2px solid hsla(0,0%,100%,.04);
     position: relative;
-    top: -42px;
+    top: -14px;
 }
 
 .item p {
     display: block;
     position: relative;
     left: 15px;
-    top: -28px;
+    top: -14px;
     text-indent:1em;
     font-style: initial;
     color: #FFFFFF;
@@ -110,20 +111,32 @@ body {
     width: 18px;
     height: 18px;
     position: relative;
-    top: -15px;
-    left: -20px;
+    top: 10px;
+    left: 20px;
 }
 
 .left-bar a {
     text-decoration: none;
 }
 
+.left-bar li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 30px;
+    width: 120px;
+}
+
 .left-bar li p {
     position: relative;
-    top: -15px;
-    left: -8px;
+    top: -6px;
+    left: 30px;
     font-size: 12px;
     display: block;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    height: 1px;
     padding-bottom: 4px;
     font-style: initial;
     color: #6b7386;
@@ -131,6 +144,7 @@ body {
 
 .left-bar p:hover {
     color: #FFFFFF;
+    
 }
 
 .left-bar li:last-child {
@@ -212,8 +226,8 @@ body {
 
 .nav-1 img {
     position: relative;
-    left: 18px;
-    top: -1px;
+    left: 20px;
+    top: 10px;
     display: inline-block;
     width: 27px;
     height: 24px;
@@ -222,8 +236,8 @@ body {
 .nav-1 p {
     display: inline-block;
     position: relative;
-    left: 14px;
-    top: -6px;
+    left: 17px;
+    top: 12px;
     font-size: 18px;
     font-style: initial;
     color: #666;
@@ -235,7 +249,7 @@ body {
 
 .ic {
     float: left;
-    margin: 0px 14px 21px;
+    margin: 30px 14px 21px 28px;
     padding-right: 10px;
     width: 240px;
     height: 105px;
@@ -295,8 +309,8 @@ body {
 .ic a {
     font-weight: 700;
     position: relative;
-    left: 12px;
-    top: -13px;
+    left: 18px;
+    top: 7px;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
