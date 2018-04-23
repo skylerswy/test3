@@ -457,6 +457,9 @@ body {
 
     .ic {
         width: 150px;
+        margin: 10px;
+        padding-right: 15px;
+        height: 160px;
     }
 }
 
