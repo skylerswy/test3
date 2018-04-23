@@ -97,7 +97,7 @@ body {
 .left-bar {
     list-style: none;
     /* 去点 */ 
-    width: 100px;
+    width: 150px;
     overflow-y:scroll;
     overflow-x:hidden;
 }
@@ -154,6 +154,26 @@ body {
     width: 150px;
     border-top: 2px solid hsla(0,0%,100%,.04);
     color: #FFFFFF;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background-color: transparent!important;
+
+} 
+
+.nav-pills>li.active>a>p, 
+.nav-pills>li.active>a>p:focus, 
+.nav-pills>li.active>a>p:hover {
+    display: inline;
+    color: #fff;
+}
+
+.nav-pills>li.active>a, 
+.nav-pills>li.active>a:focus, 
+.nav-pills>li.active>a:hover {
+    background-color: transparent!important;
+    
 }
 
 /* -----------left-nav-------------- */
