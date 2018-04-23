@@ -372,6 +372,9 @@ body {
     .left-imgs {
         display: none;
     }
+    .input-bar {
+        display: none;
+    }
 
     .left-nav {
         position: fixed;
@@ -389,9 +392,8 @@ body {
     }
     
     .left-bar {
-        padding: 0;
-        margin: 0;
-        width: 1750px;
+       
+        width: 1550px;
     }
 
     .foot {
@@ -399,10 +401,27 @@ body {
     }
 
     .left-bar li {
-        float: left;
-        padding-right: 15px;
-        padding-left: 30px;
+        float: left!important;
+        width: 85px;
+        padding: 0;
+        margin: 0;
     }
+
+    .left-bar li a {
+        padding: 0;
+        width: 60px;
+        margin: 0;
+        right: 21px;
+    }
+ 
+    .nav-pills>li.active>a>p, 
+    .nav-pills>li.active>a>p:focus, 
+    .nav-pills>li.active>a>p:hover {
+        color: #000;
+        font-weight:bold;
+        display: block;
+    }
+
 
     .light {
         font-size: 18px;
