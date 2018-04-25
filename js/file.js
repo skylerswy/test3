@@ -175,36 +175,69 @@ $(".search-button").click(function() {
 });
    
 //---------------------ajsx-------------------------
-var xmlHttp;
-function checkIt(){
-    var account=document.getElementById("user1").value;
-    //console.log(account);
-    //获取注册帐号
-    xmlHttp = new XMLHttpRequest();
-    //创建XMLHttpRequest对象XMLHttpRequest
-    //用于在后台与服务器交换数据。
-    //这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
-    var url = "/auth/register";
-    //url：文件在服务器上的位置
-    xmlhttp.open("POST",url,true);
-    //规定请求的类型、URL 以及是否异步处理请求。
-    xmlhttp.setRequestHeader("Content-type","application/json ");
-    //如果需要像 HTML 表单那样 POST 数据，
-    //请使用 setRequestHeader() 来添加 HTTP 头。
-    //然后在 send() 方法中规定您希望发送的数据：
-    xmlhttp.send("account");
-    xmlHttp.onreadystatechange=function(){
-        if (xmlHttp.readyState==4 && xmlHttp.status==200){
-            document.getElementById("errorAccount").innerHTML = xmlHttp.responseText;
-        }
-    }
-
-}
-
-
-
+// var xmlHttp;
+// $(document).ready(function(){
+//     function register(){    
+//         var account=document.getElementById("user1").value;
+//         //console.log(account);
+//         //获取注册帐号
+//         xmlHttp = new XMLHttpRequest();
+//         //创建XMLHttpRequest对象XMLHttpRequest
+//         //用于在后台与服务器交换数据。
+//         //这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+//         var url = "/auth/register";
+//         //url：文件在服务器上的位置
+//         xmlhttp.open("POST",url,true);
+//         //规定请求的类型、URL 以及是否异步处理请求。
+//         xmlhttp.setRequestHeader("Content-type","application/json ");
+//         //如果需要像 HTML 表单那样 POST 数据，
+//         //请使用 setRequestHeader() 来添加 HTTP 头。
+//         //然后在 send() 方法中规定您希望发送的数据：
+//         xmlhttp.send("account");
+//         xmlHttp.onreadystatechange=function(){
+//             if (xmlHttp.readyState==4 && xmlHttp.status==200){
+//                 document.getElementById("errorAccount").innerHTML = xmlHttp.responseText;
+//             }
+//         }
+//     }  
+// });
 //---------------------ajsx-------------------------
 
-function register(){
-    alert(".");
+// 1.ajax()方法是功能最强大最齐全的请求服务器数据的方法
+// 2.ajax()能够获取服务器返回的数据
+// 3.ajax()能够向服务器发送并传递数值
+
+// 调用的格式：jQuery.ajax([settings])或$.ajax([settings])
+// 参数[settings]为发送ajax()请求时的各项参数的配置信息，键值对的形式写入
+
+var settings = {    
+    "async": true,
+    // 布尔值，表示请求是否异步处理。默认是 true。   
+    "crossDomain": true,    
+    //跨域请求
+    "url": "http://120.77.34.120:8080/auth/login",
+    //规定发送请求的 URL。默认是当前页面。  
+    "method": "POST",    
+    "headers": {        
+        "content-type": "application/json" 
+        //发送数据到服务器时所使用的内容类型。
+        //默认是："application/x-www-form-urlencoded"。
+    },    
+    "processData": false,
+    //布尔值，规定通过请求发送的数据是否转换为查询字符串。默认是 true。    
+    "data": JSON.stringify({ 
+        //data规定要发送到服务器的数据。       
+        "email": "username@domain.com",        
+        "password": "123456"    
+    }) 
 }
+    
+$.ajax(settings).done(function(response) {    
+    console.log(response); 
+}).fail(function(error) {    
+    console.log(error); 
+});
+
+
+
+

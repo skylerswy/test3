@@ -653,7 +653,7 @@
             <h4 class="modal-title" id="myModalLabel">注册</h4>
         </div>
         <div class="modal-body text-center">
-            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1" onblur="checkIt()"/> 
+            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1" /> 
             <!-- onblur 事件会在对象失去焦点时发生。         -->
             <div id="errorAccount"></div>
             <input type="password" required="required" placeholder="密码" name="password1"  class="password" id="password1"/>
@@ -666,7 +666,7 @@
         </div>
         <div id="error_box" style="text-align: center;"><br></div>
         <div class="modal-footer">
-            <input type="button" class="btn btn-default"  onClick="register()" value="注册 "/>
+            <input type="button" class="btn btn-default" id="register-ajax" value="注册 "/>
             <!-- data-dismiss="modal" 点击会关闭-->
         </div>
     </div><!-- /.modal-content设置样式 -->
