@@ -653,9 +653,16 @@
             <h4 class="modal-title" id="myModalLabel">注册</h4>
         </div>
         <div class="modal-body text-center">
-            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1"/>         
+            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1" onblur="checkIt()"/> 
+            <!-- onblur 事件会在对象失去焦点时发生。         -->
+            <div id="errorAccount"></div>
             <input type="password" required="required" placeholder="密码" name="password1"  class="password" id="password1"/>
             <input type="password" required="required" placeholder="确认密码" name="password2"  class="password" id="password2"/>
+            <div align="center">
+            <input type="text" required="required" placeholder="验证码" name="vcode" class="vcode" id="code" style="width:80px;"/>
+            <input type="button" class="btn btn-default" value="发送验证码" />
+
+            </div>
         </div>
         <div id="error_box" style="text-align: center;"><br></div>
         <div class="modal-footer">

@@ -121,47 +121,47 @@ function sear_for() {
 //---------------混动js方法---------------------------
 
 
-function register() {
-    var oUname = document.getElementById("user1").value;
-    var oUpass = document.getElementById("password1");
-    var oUpassagain = document.getElementById("password2");
-    var oError = document.getElementById("error_box");
+// function register() {
+//     var oUname = document.getElementById("user1").value;
+//     var oUpass = document.getElementById("password1");
+//     var oUpassagain = document.getElementById("password2");
+//     var oError = document.getElementById("error_box");
 
-    if (oUname.length == 0) {
-        oError.innerHTML = "账号不能为空"
-        return false;
-    }
+//     if (oUname.length == 0) {
+//         oError.innerHTML = "账号不能为空"
+//         return false;
+//     }
 
-    if (oUname.length != 0) {
-        var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-        isok= reg.test(oUname );
-        if (!isok) {
-            oError.innerHTML = "邮箱格式不正确，请重新输入！"
-            document.getElementById("user1").focus();
-            // 该方法表示将输入焦点移至对象上
-            return false;
-        }
-    }
+//     if (oUname.length != 0) {
+//         var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+//         isok= reg.test(oUname );
+//         if (!isok) {
+//             oError.innerHTML = "邮箱格式不正确，请重新输入！"
+//             document.getElementById("user1").focus();
+//             // 该方法表示将输入焦点移至对象上
+//             return false;
+//         }
+//     }
 
-    if (oUpass.value.length > 20 || oUpass.value.length < 6) {
-        oError.innerHTML = "密码请输入6-20位字符"
-        return false;
-    }
+//     if (oUpass.value.length > 20 || oUpass.value.length < 6) {
+//         oError.innerHTML = "密码请输入6-20位字符"
+//         return false;
+//     }
 
-    if (oUpassagain.value.length == 0) {
-        oError.innerHTML = "请输入第二次密码"
-        return false;
-    }
+//     if (oUpassagain.value.length == 0) {
+//         oError.innerHTML = "请输入第二次密码"
+//         return false;
+//     }
 
-    if (oUpassagain.value != oUpass.value) {
-        oError.innerHTML = "两次密码不一致，请重新输入"
-        oUpass.value = "";
-        oUpassagain.value = "";
-        return false;
-    }
-    window.alert("注册成功")
-    $("#myModal-register").modal('hide');
-}
+//     if (oUpassagain.value != oUpass.value) {
+//         oError.innerHTML = "两次密码不一致，请重新输入"
+//         oUpass.value = "";
+//         oUpassagain.value = "";
+//         return false;
+//     }
+//     window.alert("注册成功")
+//     $("#myModal-register").modal('hide');
+// }
 
 $(".search-button").click(function() {
     var val = $(".search").val(); // 获取搜索词
@@ -174,3 +174,37 @@ $(".search-button").click(function() {
     }
 });
    
+//---------------------ajsx-------------------------
+var xmlHttp;
+function checkIt(){
+    var account=document.getElementById("user1").value;
+    //console.log(account);
+    //获取注册帐号
+    xmlHttp = new XMLHttpRequest();
+    //创建XMLHttpRequest对象XMLHttpRequest
+    //用于在后台与服务器交换数据。
+    //这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+    var url = "/auth/register";
+    //url：文件在服务器上的位置
+    xmlhttp.open("POST",url,true);
+    //规定请求的类型、URL 以及是否异步处理请求。
+    xmlhttp.setRequestHeader("Content-type","application/json ");
+    //如果需要像 HTML 表单那样 POST 数据，
+    //请使用 setRequestHeader() 来添加 HTTP 头。
+    //然后在 send() 方法中规定您希望发送的数据：
+    xmlhttp.send("account");
+    xmlHttp.onreadystatechange=function(){
+        if (xmlHttp.readyState==4 && xmlHttp.status==200){
+            document.getElementById("errorAccount").innerHTML = xmlHttp.responseText;
+        }
+    }
+
+}
+
+
+
+//---------------------ajsx-------------------------
+
+function register(){
+    alert(".");
+}
