@@ -201,7 +201,7 @@ $(".search-button").click(function() {
 //         }
 //     }  
 // });
-//---------------------ajsx-------------------------
+//---------------------ajax-------------------------
 
 // 1.ajax()方法是功能最强大最齐全的请求服务器数据的方法
 // 2.ajax()能够获取服务器返回的数据
@@ -238,6 +238,53 @@ $.ajax(settings).done(function(response) {
     console.log(error); 
 });
 
+//---------------------注册--------------------
+var account=document.getElementById("user1").value;
+$(document).ready(function(){
+    $("#register-ajax").click(function(){
+        var settings = {    
+            "async": true,
+            // 布尔值，表示请求是否异步处理。默认是 true。   
+            "crossDomain": true,    
+            //跨域请求
+            "url": "http://120.77.34.120:8080/auth/register",
+            //规定发送请求的 URL。默认是当前页面。  
+            "method": "POST",    
+            "headers": {        
+                "content-type": "application/json" 
+                //发送数据到服务器时所使用的内容类型。
+                //默认是："application/x-www-form-urlencoded"。
+            },    
+            "processData": false,
+            //布尔值，规定通过请求发送的数据是否转换为查询字符串。默认是 true。    
+            "data": JSON.stringify({ 
+                //data规定要发送到服务器的数据。       
+                "email": "username@domain.com",        
+                "password": "123456",  
+                "verifyCode": "789012",
+                "name": "username"       
+            }) 
+        }
+        $.ajax(settings).done(function(response) {    
+            console.log(response); 
+        }).fail(function(error) {    
+            console.log(error); 
+        });
+
+
+
+        // $.post("http://120.77.34.120:8080/auth/register",
+        // {
+        //     "email": "username@domain.com",    
+        //     "password": "123456",    
+        //     "verifyCode": "789012",    
+        //     "name": "username" 
+        // },
+        // function(response){
+        //     console.log(response); 
+        // });
+    });
+});
 
 
 
