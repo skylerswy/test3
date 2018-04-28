@@ -653,20 +653,23 @@
             <h4 class="modal-title" id="myModalLabel">注册</h4>
         </div>
         <div class="modal-body text-center">
-            <input type="text" required="required" placeholder="账号" name="user" class="user" id="user1" /> 
+            
+            <input type="text" required="required" placeholder="账号" name="register_email" class="user" id="register_email" />
             <!-- onblur 事件会在对象失去焦点时发生。         -->
             <div id="errorAccount"></div>
-            <input type="password" required="required" placeholder="密码" name="password1"  class="password" id="password1"/>
-            <input type="password" required="required" placeholder="确认密码" name="password2"  class="password" id="password2"/>
+            <input type="password" required="required" placeholder="密码" name="register_password"  class="password" id="register_password"/>
+            <small class="form-text text-muted">大小写字母和数字组成，6 - 20 位</small>
+            <input type="password" required="required" placeholder="确认密码" name="register_password2"  class="password" id="register_password2"/>
             <div align="center">
-            <input type="text" required="required" placeholder="验证码" name="vcode" class="vcode" id="code" style="width:80px;"/>
-            <input type="button" class="btn btn-default" value="发送验证码" />
+            <input type="text" required="required" placeholder="验证码" name="verify_code" class="vcode" id="verify_code" style="width:80px;"/>
+            <input type="button" class="btn btn-default" id="get_verify_code_btn" value="发送验证码" />
 
             </div>
         </div>
         <div id="error_box" style="text-align: center;"><br></div>
         <div class="modal-footer">
-            <input type="button" class="btn btn-default" id="register-ajax" value="注册 "/>
+                <button type="button" class="btn btn-default" id="register_modal_login_btn">登录</button>
+            <input type="button" class="btn btn-default" id="register_btn" value="注册 "/>
             <!-- data-dismiss="modal" 点击会关闭-->
         </div>
     </div><!-- /.modal-content设置样式 -->
@@ -686,12 +689,13 @@
             <h4 class="modal-title" id="myModallogoin">登录</h4>
         </div>
         <div class="modal-body text-center">
-            <input type="text" required="required" placeholder="账号" name="user" id="user" class="user"/>         
-            <input type="password" required="required" placeholder="密码" name="password" id="password" class="password"/>
+            <input type="text" required="required" placeholder="账号" name="login_email" id="login_email" class="user"/>         
+            <input type="password" required="required" placeholder="密码" name="login_password" id="login_password" class="password"/>
         </div>
         
         <div class="modal-footer">
-            <input type="button" class="btn btn-default"  onClick="logoin()" value="登录 "/>  
+                <button type="button" class="btn btn-default" id="login_modal_register_btn">注册</button>
+            <input type="button" class="btn btn-default" id="login_btn" value="登录 "/>  
         </div>
     </div><!-- /.modal-content设置样式 -->
     </div><!-- /.modal 设置宽度大小-->
