@@ -13,15 +13,20 @@
         <div class="left-nav">
             <div class="posi">
                 <div class="title">
-                    <p>Web前端导航</p>
+                    <p>我的导航</p>
                 </div>
-                <div class="item">
-                    <img src="img/left1.png" class="left-img">
-                    <p>前端导航</p>
+                <div  class="item">
+                    <!-- <img src="img/left1.png" class="left-img"> -->
+                    <!-- <p>前端导航</p> -->
+                    <div class="text-center" id="container">
+                            <button class="btn btn-default" id="add_btn add_category_btn">添加分类</button>
+                            <button class="btn btn-default" id="add_btn add_website_btn">添加网站</button>
+                    </div>
+                    <div id="categories"></div>
                 </div>  
                 <nav id="myScrollspy" class="navbar" role="navigation">
                         <!-- 添加 role="navigation"，有助于增加可访问性。 -->    
-                <ul class="nav navbar-nav nav-pills nav-stacked left-bar">
+                <ul  class="nav navbar-nav nav-pills nav-stacked left-bar">
                     <!-- 为了向导航栏添加链接，
                         只需要简单地添加带有 class .nav、.navbar-nav 的无序列表即可。 -->
                     <!-- nav-tabs 横着排列,表格导航
@@ -700,6 +705,84 @@
     </div><!-- /.modal-content设置样式 -->
     </div><!-- /.modal 设置宽度大小-->
 </div>
+
+<!--添加分类 modal-->
+<div class="modal fade" id="add_category_modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加分类</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="category_name">名称</label>
+                    <input type="text" class="form-control" id="category_name" name="category_name"
+                           placeholder="请输入分类名称">
+                </div>
+                <div class="form-group">
+                    <label for="category_sort">排在哪个分类后</label>
+                    <select class="form-control" id="category_sort" name="category_sort">
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="add_category_ok_btn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加分类 modal-->
+
+<!--添加网站 modal-->
+<div class="modal fade" id="add_website_modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加网站</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="website_category">分类</label>
+                    <select class="form-control" id="website_category" name="website_category">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="website_name">名称</label>
+                    <input type="text" class="form-control" id="website_name" name="website_name"
+                           placeholder="请输入网站名称">
+                </div>
+                <div class="form-group">
+                    <label for="website_url">URL</label>
+                    <input type="url" class="form-control" id="website_url" name="website_url"
+                           placeholder="请输入网站 URL">
+                </div>
+                <div class="form-group">
+                    <label for="website_description">简介</label>
+                    <textarea class="form-control" id="website_description" rows="3"></textarea>
+                    <small class="form-text text-muted">不能超过 100 个字符</small>
+                </div>
+                <div class="form-group">
+                    <label for="website_sort">排在哪个网站后</label>
+                    <select class="form-control" id="website_sort" name="website_sort">
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="add_website_ok_btn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加网站 modal-->
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/file.js"></script>

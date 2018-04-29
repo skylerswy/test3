@@ -252,9 +252,12 @@ var api_urls = {
     register: api_host + '/auth/register',
     //登录地址
     login: api_host + '/auth/login',
-    //user: api_host + '/user',
-    //add_category: api_host + '/category/add',
-    //add_website: api_host + '/website/add'
+    user: api_host + '/user',
+    //用户收藏地址
+    add_category: api_host + '/category/add',
+    //添加分类
+    add_website: api_host + '/website/add'
+    //添加网站
 };
 
 
@@ -388,6 +391,45 @@ var $register_btn = $('#register_btn');
 // 点击注册按钮
 $register_btn.on('click', on_click_register_btn);
 
+// container
+var $container = $('#container');
+// 显示分类的 div
+var $categories = $('#categories');
+// 添加分类按钮
+var $add_category_btn = $('#add_category_btn');
+
+// 点击添加分类按钮
+$add_category_btn.on('click', on_click_add_category_btn);
+// 添加分类 modal
+var $add_category_modal = $('#add_category_modal');
+// 新分类名称
+var $category_name = $('input[name="category_name"]');
+// 新分类排序
+var $category_sort = $('#category_sort');
+// 确定添加分类按钮
+var $add_category_ok_btn = $('#add_category_ok_btn');
+// 点击确定添加分类按钮
+$add_category_ok_btn.on('click', on_click_add_category_ok_btn);
+// 添加网站按钮
+var $add_website_btn = $('#add_website_btn');
+// 添加网站 modal
+var $add_website_modal = $('#add_website_modal');
+// 点击添加网站按钮
+$add_website_btn.on('click', on_click_add_website_btn);
+// 添加网站确定按钮
+var $add_website_ok_btn = $('#add_website_ok_btn');
+$add_website_ok_btn.on('click', on_click_add_website_ok_btn);
+// 网站字段
+var $website_category = $('#website_category');
+$website_category.on('change', on_website_category_change);
+var $website_name = $('#website_name');
+var $website_url = $('#website_url');
+var $website_description = $('#website_description');
+var $website_sort = $('#website_sort');
+// 新网站分类
+var website_category_id = -1;
+
+
 //什么是token
 //token的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。
 //当用户第一次登录后，服务器生成一个token并将此token返回给客户端，
@@ -403,7 +445,7 @@ var token = get_local_token();
 // 如果 token 不为空
 if (token) {
     // TODO 显示用户信息
-    //return get_user_favorite(token);
+    return get_user_favorite(token);
     return;
 }
 // 弹出登录 modal
@@ -418,6 +460,63 @@ function update_local_token(token) {
     localStorage.removeItem('token');
     localStorage.setItem('token', token);
 }
+
+// 获取用户收藏
+function get_user_favorite(token) {
+    // 调用 API
+    $.ajax({
+        'url': api_urls.user,
+        'method': 'GET',
+        // 用户认证 token
+        'headers': {
+            'Authorization': 'Bearer ' + token
+        }
+    }).done(function (response) {
+        console.log(response);
+        if (is_success(response)) {
+            // 输出收藏
+            render_favorite(response.categories);
+            return;
+        }
+        // 失败
+        error_tip(get_error_message(response));
+    });
+}
+// 输出用户收藏
+function render_favorite(categories) {
+    console.log(categories);
+    // 保存用户收藏，用于添加分类或是网站时使用
+    user_favorites = categories;
+    // 分类
+    render_categories(categories);
+    // 下拉框
+    add_categories_to_select(categories);
+    add_categories_to_select2(categories);
+    // 显示我的收藏
+    $container.show();
+}
+// 输出分类
+function render_categories(categories) {
+    var div = '';
+    for (var i = 0; i < categories.length; i++) {
+        var category = categories[i];
+        div += '<div class="category" data-cid="' + category.id + '">';
+        div += '<h4>' + category.name + '</h4>';
+        // 分类下的网站
+        var websites = category.websites;
+        // 排序
+        websites = websites.sort(function (a, b) {
+            return a.sort - b.sort;
+        });
+        for (var j = 0; j < websites.length; j++) {
+            div += '<p><a href="' + websites[j].url + '">' + websites[j].name + '</a></p>';
+        }
+        div += '</div>';
+    }
+    $categories.html(div);
+}
+
+
 // 显示登录 modal
 function show_login_modal() {
     $login_modal.modal({
@@ -497,7 +596,8 @@ function get_error_message(data) {
 }
 // 设置 button 的 disabled => true
 function disabled_btn(btn) {
-    btn.prop('disabled', true);
+    btn.prop('disabled', true);//禁用
+    //prop() 方法设置或返回被选元素的属性和值。
 }
 // 设置 button 的 disabled => false
 function enable_btn(btn) {
@@ -679,8 +779,308 @@ function login_success(response) {
     close_login_modal();
     // TODO 显示用户信息
     // 获取用户收藏并显示到网页
-    //get_user_favorite(token);
+    get_user_favorite(token);
     
 }
 
+// 点击添加分类按钮
+function on_click_add_category_btn() {
+    show_add_category_modal();
+}
+// 显示添加分类 modal
+function show_add_category_modal() {
+    //$add_category_modal.modal('show');
+    $add_category_modal.modal({
+        'backdrop': 'static'
+        //点击背景空白处不被关闭； 
+    });
+}
+// 关闭添加分类 modal
+function close_add_category_modal() {
+    $add_category_modal.modal('hide');
+}
+// 点击确定添加分类按钮
+function on_click_add_category_ok_btn() {
+    // 名称
+    var name = get_category_name();
+    if (!name) {
+        return;
+    }
+    // 排序
+    var after = get_category_sort();
+    // 是否是第一位
+    var first = false;
+    if (after === true) {
+        first = true;
+        after = -1;
+    }
+    // token
+    var token = get_local_token();
+    if (!token) {
+        error_tip('获取 token 失败');
+        return;
+    }
+    // 发起请求的 btn
+    request_btn = $(this);
+    // 调用 API
+    $.ajax({
+        'url': api_urls.add_category,
+        'method': 'POST',
+        'data': JSON.stringify({
+            name: name,
+            first: first,
+            after: after
+        }),
+        // 用户认证 token
+        'headers': {
+            'Authorization': 'Bearer ' + token
+        }
+    }).done(function (response) {
+        console.log(response);
+        if (is_success(response)) {
+            // 关闭 modal
+            close_add_category_modal();
+            // 清空掉 category_name
+            $category_name.val('');
+            // 重新请求一次获取用户收藏：
+            // 1、更新 user_favorites
+            // 2、显示到页面
+            // 3、更新两个 select
+            get_user_favorite(token);
+            return;
+        }
+        // 失败
+        error_tip(get_error_message(response));
+    });
+}
+// 获取新分类名称
+function get_category_name() {
+    var name = $category_name.val();
+    name = name.trim();
+    if (name.length === 0) {
+        error_tip('请输入分类名称');
+        return false;
+    }
+    // 不能超过 20 个字符
+    if (name.length > 20) {
+        error_tip('分类名称不能超过 20 个字符');
+        return false;
+    }
+    return name;
+}
+// 获取新分类排序
+function get_category_sort() {
+    var sort = $category_sort.val();
+    // 解析成 int
+    sort = parseInt(sort);
+    // 解析失败，当作排在第一位
+    if (isNaN(sort)) {
+        return true;
+    }
+    // 是否排在第一位
+    if (sort < 0) {
+        return true;
+    }
+    return sort;
+}
+// 添加分类到 add_category_modal 的下拉选项
+function add_categories_to_select(categories) {
+    var options = '<option value="-1" selected>排在第一位</option>';
+    for (var i = 0; i < categories.length; i++) {
+        options += '<option value="' + categories[i].id + '">' + categories[i].name + '</option>';
+    }
+    $category_sort.html(options);
+}
+// 添加分类到 add_website_modal
+function add_categories_to_select2(categories) {
+    var options = '<option value="-1" selected>选择分类</option>';
+    for (var i = 0; i < categories.length; i++) {
+        options += '<option value="' + categories[i].id + '">' + categories[i].name + '</option>';
+    }
+    $website_category.html(options);
+}
+// 点击添加网站按钮
+function on_click_add_website_btn() {
+    show_add_website_modal();
+}
+// 显示添加网站 modal
+function show_add_website_modal() {
+    $add_website_modal.modal({
+        'backdrop': 'static'
+    });
+}
+// 关闭添加网站 modal
+function close_add_website_modal() {
+    $add_website_modal.modal('hide');
+}
+// 点击添加网站确定按钮
+function on_click_add_website_ok_btn() {
+    // 分类
+    if (website_category_id < 1) {
+        error_tip('请选择网站分类');
+        return;
+    }
+    // 名称
+    var name = get_website_name();
+    if (!name) {
+        return;
+    }
+    // url
+    var url = get_website_url();
+    if (!url) {
+        return;
+    }
+    // description
+    var description = get_website_description();
+    if (!description) {
+        return;
+    }
+    // 排序
+    var after = get_website_sort();
+    // 是否是第一位
+    var first = false;
+    if (after === true) {
+        first = true;
+        after = -1;
+    }
+    // token
+    var token = get_local_token();
+    if (!token) {
+        error_tip('获取 token 失败');
+        return;
+    }
+    // 发起请求的 btn
+    request_btn = $(this);
+    // 调用 API
+    $.ajax({
+        'url': api_urls.add_website,
+        'method': 'POST',
+        'data': JSON.stringify({
+            name: name,
+            url: url,
+            description: description,
+            categoryId: website_category_id,
+            first: first,
+            after: after
+        }),
+        // 用户认证 token
+        'headers': {
+            'Authorization': 'Bearer ' + token
+        }
+    }).done(function (response) {
+        console.log(response);
+        if (is_success(response)) {
+            // 关闭 modal
+            close_add_website_modal();
+            // 清空 modal 的 input
+            $website_name.val('');
+            $website_url.val('');
+            $website_description.val('');
+            // 重新请求一次获取用户收藏：
+            // 1、更新 user_favorites
+            // 2、显示到页面
+            // 3、更新两个 select
+            get_user_favorite(token);
+            return;
+        }
+        // 失败
+        error_tip(get_error_message(response));
+    });
+}
+// 新网站名称
+function get_website_name() {
+    var name = $website_name.val();
+    name = name.trim();
+    if (name.length === 0) {
+        error_tip('请输入网站名称');
+        return false;
+    }
+    // 不能超过 20 个字符
+    if (name.length > 20) {
+        error_tip('网站名称不能超过 20 个字符');
+        return false;
+    }
+    return name;
+}
+// 新网站 URL
+function get_website_url() {
+    var url = $website_url.val();
+    url = url.trim();
+    if (url.length === 0) {
+        error_tip('请输入网站URL');
+        return false;
+    }
+    // 不能超过 255 个字符
+    if (url.length > 255) {
+        error_tip('网站URL不能超过 255 个字符');
+        return false;
+    }
+    // TODO 判断是否是有效的 URL
+    return url;
+}
+// 新网站简介
+function get_website_description() {
+    var description = $website_description.val();
+    description = description.trim();
+    if (description.length === 0) {
+        error_tip('请输入网站简介');
+        return false;
+    }
+    // 不能超过 100 个字符
+    if (description.length > 100) {
+        error_tip('网站简介不能超过 100 个字符');
+        return false;
+    }
+    return description;
+}
+// 网站排序
+function get_website_sort() {
+    var sort = $website_sort.val();
+    // 解析成 int
+    sort = parseInt(sort);
+    // 解析失败，当作排在第一位
+    if (isNaN(sort)) {
+        return true;
+    }
+    // 是否排在第一位
+    if (sort < 0) {
+        return true;
+    }
+    return sort;
+}
+// 当网站分类改变时
+function on_website_category_change() {
+    var id = $website_category.val();
+    id = parseInt(id);
+    if (!isNaN(id)) {
+        website_category_id = id;
+    }
+    var category = find_category(id);
+    // 重新输出网站排序的 options
+    if (category) {
+        render_category_websites(category.websites);
+    }
+}
+// 查找 category
+function find_category(id) {
+    for (var i = 0; i < user_favorites.length; i++) {
+        if (user_favorites[i].id === id) {
+            return user_favorites[i];
+        }
+    }
+    return false;
+}
+// 输出分类下的网站到 select
+function render_category_websites(websites) {
+    // 排序
+    websites = websites.sort(function (a, b) {
+        return a.sort - b.sort;
+    });
+    var options = '<option value="-1" selected>排在第一位</option>';
+    for (var i = 0; i < websites.length; i++) {
+        options += '<option value="' + websites[i].id + '">' + websites[i].name + '</option>';
+    }
+    $website_sort.html(options);
+}
 });
+

@@ -64,6 +64,8 @@ body {
     left: 183px;;
 }
 
+
+
 .foot p {
     color: #FFFFFF;
     font-size: 12px;
@@ -89,6 +91,7 @@ body {
 }
 
 .item {
+    padding-top: 5px;
     height: 48px;
     border-top: 2px solid hsla(0,0%,100%,.04);
     border-bottom: 2px solid hsla(0,0%,100%,.04);
@@ -213,6 +216,7 @@ body {
     /* display: none; */
     margin: 20px auto;
     width: 500px;
+    
 }
 
 .search {
