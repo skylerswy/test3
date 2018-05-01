@@ -130,6 +130,25 @@ body {
     width: 120px;
 }
 
+.add_categories {
+    position: relative;
+    top: 26px;
+    left: 49px;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    height: 1px;
+    padding-bottom: 4px;
+    font-style: initial;
+    color: #6b7386;
+}
+
+.add_categories:last-child {
+    padding-bottom: 20px;
+}
+
+
 .left-bar li p {
     position: relative;
     top: -6px;

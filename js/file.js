@@ -497,11 +497,11 @@ function render_favorite(categories) {
 }
 // 输出分类
 function render_categories(categories) {
-    var div = '';
+    var li = '';
     for (var i = 0; i < categories.length; i++) {
         var category = categories[i];
-        div += '<div class="category" data-cid="' + category.id + '">';
-        div += '<h4>' + category.name + '</h4>';
+        li += '<li class="category" data-cid="' + category.id + '">';
+        li +=  category.name ;
         // 分类下的网站
         var websites = category.websites;
         // 排序
@@ -509,11 +509,11 @@ function render_categories(categories) {
             return a.sort - b.sort;
         });
         for (var j = 0; j < websites.length; j++) {
-            div += '<p><a href="' + websites[j].url + '">' + websites[j].name + '</a></p>';
+            li += '<p><a href="' + websites[j].url + '">' + websites[j].name + '</a></p>';
         }
-        div += '</div>';
+        li += '</li>';
     }
-    $categories.html(div);
+    $categories.html(li);
 }
 
 
@@ -814,7 +814,7 @@ function on_click_add_category_ok_btn() {
         first = true;
         after = -1;
     }
-    // token
+    // // 读取 token
     var token = get_local_token();
     if (!token) {
         error_tip('获取 token 失败');
@@ -857,6 +857,7 @@ function on_click_add_category_ok_btn() {
 function get_category_name() {
     var name = $category_name.val();
     name = name.trim();
+    //trim去掉字符序列左边和右边的空格
     if (name.length === 0) {
         error_tip('请输入分类名称');
         return false;
