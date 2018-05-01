@@ -921,6 +921,13 @@ function on_click_add_website_ok_btn() {
         error_tip('请选择网站分类');
         return;
     }
+
+    //icon
+    var icon = get_website_icon();
+    if(!icon) {
+        return;
+    }
+
     // 名称
     var name = get_website_name();
     if (!name) {
@@ -957,6 +964,7 @@ function on_click_add_website_ok_btn() {
         'url': api_urls.add_website,
         'method': 'POST',
         'data': JSON.stringify({
+            icon:icon,
             name: name,
             url: url,
             description: description,
@@ -988,6 +996,13 @@ function on_click_add_website_ok_btn() {
         error_tip(get_error_message(response));
     });
 }
+
+//新网站icon
+var $website_icon = $('#website_icon');
+function get_website_icon() {
+    var icon ;
+}
+
 // 新网站名称
 function get_website_name() {
     var name = $website_name.val();
