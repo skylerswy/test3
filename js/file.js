@@ -964,7 +964,7 @@ function on_click_add_website_ok_btn() {
         'url': api_urls.add_website,
         'method': 'POST',
         'data': JSON.stringify({
-            icon:icon,
+            icon: icon,
             name: name,
             url: url,
             description: description,
@@ -982,6 +982,7 @@ function on_click_add_website_ok_btn() {
             // 关闭 modal
             close_add_website_modal();
             // 清空 modal 的 input
+            $website_icon.val('');
             $website_name.val('');
             $website_url.val('');
             $website_description.val('');
