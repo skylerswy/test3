@@ -422,6 +422,7 @@ $add_website_ok_btn.on('click', on_click_add_website_ok_btn);
 // 网站字段
 var $website_category = $('#website_category');
 $website_category.on('change', on_website_category_change);
+var $website_icon = $('#website_icon');
 var $website_name = $('#website_name');
 var $website_url = $('#website_url');
 var $website_description = $('#website_description');
@@ -999,7 +1000,7 @@ function on_click_add_website_ok_btn() {
 }
 
 //新网站icon
-var $website_icon = $('#website_icon');
+
 function get_website_icon() {
     var icon = $website_icon.val();
     if (icon.length === 0) {
@@ -1012,7 +1013,7 @@ function get_website_icon() {
         return false;
     }
     // TODO 判断是否是有效的 URL
-    return url;
+    return icon;
 }
 
 // 新网站名称
