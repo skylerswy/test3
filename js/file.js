@@ -1000,7 +1000,18 @@ function on_click_add_website_ok_btn() {
 //新网站icon
 var $website_icon = $('#website_icon');
 function get_website_icon() {
-    var icon ;
+    var icon = $website_icon.val();
+    if (icon.length === 0) {
+        error_tip('请输入网站URL');
+        return false;
+    }
+    // 不能超过 255 个字符
+    if (icon.length > 255) {
+        error_tip('图片URL不能超过 255 个字符');
+        return false;
+    }
+    // TODO 判断是否是有效的 URL
+    return url;
 }
 
 // 新网站名称
